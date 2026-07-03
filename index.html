@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>황지영(@imjyong) 자기소개서</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #03c75a;
+      --green-soft: rgba(3, 199, 90, .2);
+      --text: #1f1f1f;
+      --muted: #6f6f6f;
+      --line: rgba(0, 0, 0, .12);
+      --card: rgba(255, 255, 255, .72);
+    }
+
+    * { box-sizing: border-box; }
+
+    ::selection {
+      color: #fff;
+      background: var(--green);
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: "Space Mono", monospace;
+      color: var(--text);
+      background: #fff;
+      overflow-x: hidden;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100vh;
+      padding: 64px 7vw 40px;
+      isolation: isolate;
+    }
+
+    .gradient-arc {
+      position: absolute;
+      right: -12vw;
+      top: 165px;
+      width: 58vw;
+      height: 58vw;
+      border-radius: 999px 0 0 0;
+      background:
+        radial-gradient(circle at 65% 38%, rgba(3, 199, 90, .46) 0%, rgba(3, 199, 90, .24) 32%, rgba(3, 199, 90, .1) 52%, rgba(3, 199, 90, 0) 78%);
+      filter: blur(22px);
+      opacity: .95;
+      z-index: -1;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 15px;
+      letter-spacing: .08em;
+    }
+
+    .logo { font-weight: 700; }
+
+    nav {
+      display: flex;
+      gap: clamp(28px, 5vw, 82px);
+      align-items: center;
+    }
+
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color .2s ease;
+    }
+
+    nav a:hover {
+      color: var(--green);
+    }
+
+    nav a.active::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      margin-right: 24px;
+      border-radius: 50%;
+      background: var(--green);
+      vertical-align: middle;
+    }
+
+    main {
+      padding-top: 118px;
+    }
+
+    .section-label {
+      color: var(--green);
+      font-size: 15px;
+      letter-spacing: .08em;
+      margin-bottom: 32px;
+    }
+
+    .hero-title {
+      max-width: 780px;
+      margin: 0;
+      font-size: clamp(42px, 5.1vw, 78px);
+      line-height: 1.23;
+      letter-spacing: -.06em;
+      font-weight: 400;
+      text-transform: uppercase;
+    }
+
+    .cursor {
+      color: var(--green);
+      font-weight: 700;
+      animation: blink 1s steps(1) infinite;
+    }
+
+    .small-line {
+      width: 18px;
+      height: 1px;
+      margin: 34px 0 24px;
+      background: rgba(0, 0, 0, .55);
+    }
+
+    .intro {
+      max-width: 1120px;
+      color: #222;
+      font-size: 16px;
+      line-height: 1.95;
+      letter-spacing: -.06em;
+      word-break: keep-all;
+    }
+
+    .intro-line {
+      display: block;
+      white-space: nowrap;
+    }
+
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 36px;
+      margin-top: 36px;
+      padding: 14px 28px;
+      min-width: 220px;
+      border: 1px solid rgba(3, 199, 90, .55);
+      border-radius: 6px;
+      color: var(--green);
+      text-decoration: none;
+      font-size: 13px;
+      background: rgba(255, 255, 255, .48);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 24px rgba(3, 199, 90, .08);
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .cta:hover {
+      transform: translateY(-2px);
+      background: rgba(255, 255, 255, .72);
+      box-shadow: 0 16px 34px rgba(3, 199, 90, .14);
+    }
+
+    .info-area {
+      margin: 84px -7vw 0;
+      padding: 34px 7vw 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 1.1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .block-title {
+      margin-bottom: 32px;
+      color: var(--green);
+      font-size: 14px;
+      letter-spacing: .08em;
+    }
+
+    .block-title::before {
+      content: "•";
+      margin-right: 16px;
+      font-size: 18px;
+    }
+
+    .profile-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 28px;
+      margin-bottom: 23px;
+      font-size: 14px;
+    }
+
+    .profile-row span:first-child { color: var(--muted); }
+
+    .do-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .do-item {
+      display: grid;
+      grid-template-columns: 58px 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .icon {
+      width: 58px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: rgba(255,255,255,.54);
+      font-size: 20px;
+      box-shadow: 0 10px 22px rgba(0,0,0,.04);
+    }
+
+    .do-item strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .do-item p {
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.55;
+      letter-spacing: -.05em;
+      word-break: keep-all;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .chip {
+      padding: 12px 18px;
+      border: 1px solid rgba(3, 199, 90, .45);
+      border-radius: 5px;
+      color: var(--green);
+      background: rgba(255,255,255,.5);
+      font-size: 13px;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .chip:hover {
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.74);
+      box-shadow: 0 12px 28px rgba(3, 199, 90, .12);
+    }
+
+    .quote {
+      margin-top: 38px;
+      padding: 23px 34px;
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      border-radius: 10px;
+      background: rgba(250,250,250,.86);
+      box-shadow: 0 18px 45px rgba(0,0,0,.05);
+      color: #333;
+      font-size: 13px;
+    }
+
+    .quote-mark {
+      color: var(--green);
+      font-size: 34px;
+      line-height: 0;
+      margin-right: 18px;
+    }
+
+    .quote-author { color: var(--green); white-space: nowrap; }
+
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .cursor {
+        animation: none;
+      }
+
+      .cta,
+      .chip,
+      nav a {
+        transition: none;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .page { padding: 36px 24px; }
+      nav { display: none; }
+      main { padding-top: 82px; }
+      .gradient-arc { width: 95vw; height: 95vw; right: -45vw; top: 230px; }
+      .info-area { margin-left: -24px; margin-right: -24px; padding-left: 24px; padding-right: 24px; }
+      .info-grid { grid-template-columns: 1fr; gap: 42px; }
+      .quote { flex-direction: column; }
+    }
+
+    @media (max-width: 560px) {
+      .page { padding: 28px 18px 34px; }
+      main { padding-top: 72px; }
+      .section-label { margin-bottom: 24px; }
+      .hero-title {
+        font-size: clamp(38px, 12vw, 54px);
+        line-height: 1.18;
+      }
+      .intro {
+        font-size: 15px;
+        line-height: 1.8;
+      }
+      .intro-line {
+        white-space: normal;
+      }
+      .cta {
+        width: 100%;
+        justify-content: space-between;
+      }
+      .profile-row {
+        grid-template-columns: 92px 1fr;
+        gap: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="gradient-arc"></div>
+
+    <header>
+      <div class="logo">JIYOUNG HWANG</div>
+      <nav>
+        <a class="active" href="#about">ABOUT</a>
+        <a href="#profile">PROFILE</a>
+        <a href="#skills">SKILLS</a>
+        <a href="https://github.com/imjyong">GITHUB</a>
+      </nav>
+    </header>
+
+    <main id="about">
+      <div class="section-label">01. INTRODUCTION</div>
+      <h1 class="hero-title">
+        BUILDING BETTER<br />
+        SYSTEMS WITH AI.<span class="cursor">_</span>
+      </h1>
+
+      <div class="small-line"></div>
+      <p class="intro">
+        <span class="intro-line">AI를 활용하는 것만큼이나 문제를 정확히 이해하고 코드의 동작 원리를 설명할 수 있는 개발자를 지향합니다.</span>
+        <span class="intro-line">눈앞의 결과에 그치지 않고 오래 유지되고 확장할 수 있는 구조를 설계하는 것을 중요하게 생각합니다.</span>
+      </p>
+
+      <a class="cta" href="https://github.com/imjyong">VIEW GITHUB <span>→</span></a>
+    </main>
+
+    <section class="info-area" id="profile">
+      <div class="info-grid">
+        <div>
+          <div class="block-title">PROFILE</div>
+          <div class="profile-row"><span>NAME</span><span>황지영</span></div>
+          <div class="profile-row"><span>SCHOOL</span><span>Kyungpook National University</span></div>
+          <div class="profile-row"><span>MAJOR</span><span>Computer Science</span></div>
+          <div class="profile-row"><span>GITHUB</span><span>@imjyong</span></div>
+        </div>
+
+        <div>
+          <div class="block-title">WHAT I DO</div>
+          <div class="do-list">
+            <div class="do-item">
+              <div class="icon">&lt;/&gt;</div>
+              <div><strong>Problem Solving</strong><p>복잡한 문제를 분석하고, 제한된 환경에서도 최선의 해결책을 고민합니다.</p></div>
+            </div>
+            <div class="do-item">
+              <div class="icon">&gt;_</div>
+              <div><strong>AI Engineering</strong><p>AI가 생성한 코드를 이해하고 검증하며 더 나은 결과를 만들어갑니다.</p></div>
+            </div>
+            <div class="do-item">
+              <div class="icon">{ }</div>
+              <div><strong>Development</strong><p>작동하는 코드에 그치지 않고 유지보수와 확장을 고려한 구조를 설계합니다.</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div id="skills">
+          <div class="block-title">KEYWORDS</div>
+          <div class="chips">
+            <span class="chip">AI Agent</span>
+            <span class="chip">Reasoning</span>
+            <span class="chip">Prompt Engineering</span>
+            <span class="chip">Architecture</span>
+            <span class="chip">Maintainable Code</span>
+            <span class="chip">Backend</span>
+            <span class="chip">Python</span>
+            <span class="chip">Git</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="quote">
+        <div><span class="quote-mark">“</span>Artificial intelligence is not a substitute for human intelligence; it is a tool to amplify human creativity and ingenuity.</div>
+        <div class="quote-author">- Fei-Fei Li</div>
+      </div>
+    </section>
+  </div>
+</body>
+</html>
